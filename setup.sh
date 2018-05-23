@@ -12,7 +12,7 @@ if [ $1 = "local-install" ]; then
     sudo make install
 elif [ $1 = "local" ]; then
     echo "Running EOS nodeos locally"
-    nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::wallet_api_plugin
+    nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::wallet_api_plugin || echo "Please run \"$0 local-install\" first"
 elif [ $1 = "docker" ]; then
     echo "Installing EOS with Docker"
     docker volume create --name=nodeos-data-volume
@@ -35,6 +35,7 @@ else
     script_name=$0
     echo "Please specify either \"local\" or \"docker\" as the first argument passed to the script:"
     echo "Examples:"
+    echo "    $script_name local-install"
     echo "    $script_name local"
     echo "    $script_name docker"
     echo "    $script_name docker-reset # Use if issues with docker installation"
