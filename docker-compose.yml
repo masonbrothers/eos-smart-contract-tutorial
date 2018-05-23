@@ -5,7 +5,7 @@ services:
     build:
       context: .
     image: eosio/eos-dev
-    command: /opt/eosio/bin/nodeosd.sh --data-dir /opt/eosio/bin/data-dir --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::wallet_api_plugin
+    command: /opt/eosio/bin/nodeosd.sh --data-dir /opt/eosio/bin/data-dir -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin --plugin eosio::wallet_api_plugin
     hostname: nodeosd
     ports:
       - 8888:8888
