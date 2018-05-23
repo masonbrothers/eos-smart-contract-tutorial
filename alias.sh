@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 container_name=nodeos
 #container_name=eos-smart-contracts_nodeosd_1
 
